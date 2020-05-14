@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { FaHome } from 'react-icons/fa'
+import { Switch, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import ProductList from './components/ProductList'
 import Details from './components/Details'
@@ -12,10 +13,12 @@ function App() {
   return (
     <React.Fragment>
       <NavBar />
-      <ProductList />
-      <Details />
-      <Cart />
-      <Default />
+      <Switch>
+        <Route path="/" exact component={ProductList} />
+        <Route path="/details" component={Details} />
+        <Route path="/cart" component={Cart} />
+        <Route component={Default} />
+      </Switch>
     </React.Fragment>
 
   );
